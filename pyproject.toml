@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "av-lib-cx-freeze-repro"
+packages = [{ include = "src" }]
+version = "v0.0.0"
+description = ""
+readme = "README.md"
+authors = ["Martin Miglio <code@martinmiglio.dev>"]
+include = []
+
+
+[tool.poetry.dependencies]
+python = "^3.11"
+av = "^11.0.0"
+
+
+[tool.poetry.group.build]
+optional = true
+
+
+[tool.poetry.group.build.dependencies]
+cx-freeze = "^6.15.11"
