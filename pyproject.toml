@@ -18,4 +18,4 @@ optional = true
 
 
 [tool.poetry.group.build.dependencies]
-cx-freeze = "^6.15.11"
+cx-freeze = { git = "https://github.com/marcelotduarte/cx_Freeze.git", branch = "hook4a" }
