@@ -1,0 +1,33 @@
+name: Build windows package
+
+on:
+  push:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build package
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Install Poetry
+        run: |
+          pipx install "poetry>=1.7.0"
+      - name: Set up Python 3.11
+        id: pysetup
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: "poetry"
+      - name: Install package and dependencies
+        run: |
+          poetry env use '${{ steps.pysetup.outputs.python-path }}'
+          poetry install --with build
+      - name: Build package
+        run: |
+          poetry run python setup.py build_exe
+      - name: Run executable
+        run: |
+          .\build\exe.win-amd64-3.11\av-lib-cx-freeze-repro.exe
