@@ -18,4 +18,15 @@ optional = true
 
 
 [tool.poetry.group.build.dependencies]
-cx-freeze = { git = "https://github.com/marcelotduarte/cx_Freeze.git", branch = "hook4a" }
+cx-freeze = {version = "^6.16.0.dev12", source = "cx-freeze-devel"}
+
+[[tool.poetry.source]]
+name = "cx-freeze-devel"
+url = "https://marcelotduarte.github.io/packages/"
+priority = "explicit"
+
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
+
