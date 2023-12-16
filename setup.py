@@ -6,8 +6,8 @@ VERSION = "dev"
 
 
 build_exe_options = {
-    "excludes": ["test", "setuptools"],
     "includes": ["av._core"],  # can't include av.libs (module not found)
+    "include_msvcr": True,
 }
 
 
